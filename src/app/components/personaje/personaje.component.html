@@ -1,0 +1,29 @@
+<mat-dialog-content>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title *ngIf="animationArray().length === 2 && imagenActual()">
+          {{ pokemonData().species.name }}
+        </mat-card-title>
+        <img *ngIf="imagenActual()" [src]="imagenActual()" alt="Imagen de animación" height="150" width="150">
+      </mat-card-header>
+  
+      <mat-card-content *ngIf="pokemonData()">
+        <h6>Habilidades:</h6>
+        <ul>
+          <li *ngFor="let ability of pokemonData().abilities">
+            {{ ability.ability.name }}
+          </li>
+        </ul>
+        <h6>Tipo:</h6>
+        <ul>
+        <li *ngFor="let type of pokemonData().types">
+            {{ type.type.name }}
+        </li>
+        </ul>
+        <h6>Detalles Físicos:</h6>
+        <p>Peso: {{ pokemonData().weight / 10 }} kg</p>
+        <p>Altura: {{ pokemonData().height / 10 }} m</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-dialog-content>
+  

@@ -1,0 +1,20 @@
+<mat-selection-list #shoes>
+  <h1>Personajes</h1>
+  
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Ingrese el nombre o id de un Pokémon</mat-label>
+    <input matInput #pokemonName (input)="updateName(pokemonName.value)">
+    <button mat-icon-button matSuffix (click)="loadAndOpenDialog(pokemonName.value)">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+  
+  
+  <mat-grid-list cols="5" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let i of listaPersonajes.results; let index = index">
+      <button mat-raised-button (click)="openDialog(i.name)"> 
+        {{ i.name }}
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-selection-list>
